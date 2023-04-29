@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Encriptador</title>
+  </head>
+  <body>
+    <header>
+      <img src="images/logo.png" alt="Este es el logo" />
+    </header>
+
+    <main>
+      <div class="text-Areas">
+        <textarea
+          id="textAreaEnter"
+          cols="30"
+          rows="10"
+          placeholder="Ingrese el texto aqui"
+        ></textarea>
+        <div id="textAreaOutput">
+            <div id="textoOutput">
+
+            </div>
+            
+            <input type="submit" id="Copiar" value="Copiar" />
+          
+        </div>
+      </div>
+
+      <div class="advertencia"> &#33 solo letras minusculas y sin acentos</div>
+
+      <section class="botones">
+        <input id="Enviar" type="submit" value="Enviar" />
+        <input type="submit" id="Desenciptar" value="Desenciptar" />
+      </section>
+    </main>
+
+    <div class="footer">
+
+    </div>
+
+  </body>
+</html>
+
+<script>
+  let textAreaEntrada = document.getElementById("textAreaEnter");
+  let areaSalida = document.getElementById("textAreaOutput");
+  let textAreaSalida = document.getElementById("textoOutput");
+  const botonEnviar = document.getElementById("Enviar");
+  const botonDesenciptar = document.getElementById("Desenciptar");
+  const botonCopiar = document.getElementById("Copiar");
+  let strigEntrada;
+
+  
+
+  /*
+//Este es un metodo propio que desarrolle para encriptar y desencriptar un texto
+generarDiccionario = () =>{
+    let alfabetoOrdenado = [];
+    let letra;
+    for (let index = 65; index <= 122; index++) {
+         letra = String.fromCharCode(index);
+        alfabetoOrdenado.push(letra);
+    }
+
+    return alfabetoOrdenado;
+}
+
+generarDiccionarioDesordenado = () =>{
+    let alfabetoOrdenado = [];
+    let letra;
+    for (let index = 65; index <= 122; index++) {
+         letra = String.fromCharCode(index);
+        alfabetoOrdenado.push(letra);
+    }
+
+    return alfabetoOrdenado.sort(() => Math.random() - 0.5);
+}
+
+encriptar = (strigEntrada, alfabetodesOrdenado) => {
+    let strigCOdificado = "";
+    let letra;
+    let i;
+    let letraCodificada;
+
+    for (let index = 0; index < strigEntrada.length; index++) {
+        letra = strigEntrada.charAt(index);
+        if(letra == " "){
+            strigCOdificado += " ";
+        }else {
+        i = letra.charCodeAt(0) -65;
+        letraCodificada = alfabetodesOrdenado[i];
+        console.log(i);
+        strigCOdificado += letraCodificada;
+        }
+    }
+
+    return strigCOdificado;
+}
+
+desenciptar = (strigCodificado, alfabetodesOrdenado, alfabetoOrdenado) =>{
+    let letraCodificada;
+    let letradescodificada;
+    let stringdescodificado = "";
+    let i;
+    console.log(alfabetodesOrdenado)
+    
+    for (let index = 0; index < strigCodificado.length; index++) {
+        letraCodificada = strigCodificado.charAt(index);
+        if(letraCodificada == " "){
+            stringdescodificado += " ";
+        }else {
+        i = getIndex(letraCodificada, alfabetodesOrdenado);
+        letradescodificada = alfabetoOrdenado[i];
+        console.log(i);
+        stringdescodificado += letradescodificada;   
+        }
+
+        
+           
+    }
+
+    return stringdescodificado;
+}
+
+getIndex = (letra, alfabetodesOrdenado) =>{
+    //console.log(alfabetodesOrdenado);
+    //console.log(alfabetodesOrdenado[0]);
+    for (let index = 0; index < alfabetodesOrdenado.length; index++) {
+        if(letra == alfabetodesOrdenado[index]){
+            
+            return index;
+        }
+    }
+    return -1;
+}
+
+let creados = false;
+let alfabetoOrdenado = [];
+let alfabetodesOrdenado = [];
+let strigCodificado;
+let stringDescodificado;
+
+
+botonEnviar.addEventListener("click", () => {
+  strigEntrada = textAreaEntrada.value;
+  textAreaEntrada.value = "";
+  console.log(strigEntrada);
+  if(creados == false){
+    alfabetoOrdenado = generarDiccionario();
+    alfabetodesOrdenado = generarDiccionarioDesordenado();
+    creados = true;
+  }
+  
+  strigCodificado = encriptar(strigEntrada, alfabetodesOrdenado);
+  console.log(strigCodificado);
+
+  stringDescodificado = desenciptar(strigCodificado, alfabetodesOrdenado, alfabetoOrdenado);
+  console.log(stringDescodificado);
+
+  textAreaSalida.value = strigCodificado;
+  
+
+});
+
+botonDesenciptar.addEventListener("click", () =>{
+    strigCodificado = textAreaEntrada.value;
+    if(creados == false){
+    alfabetoOrdenado = generarDiccionario();
+    alfabetodesOrdenado = generarDiccionarioDesordenado();
+    creados = true;
+  }
+    stringDescodificado = desenciptar(strigCodificado, alfabetodesOrdenado, alfabetoOrdenado);
+    textAreaSalida.value = stringDescodificado;
+    textAreaEntrada.value = "";
+})
+
+botonCopiar.addEventListener("click", () =>{
+    textAreaSalida.select();
+    document.execCommand("copy");
+   // alert("Copiado al portapapeles");
+})
+*/
+
+  let arrayLetras = ["a", "e", "i", "o", "u"];
+  let arrayLetrasCodificadas = ["ai", "enter", "imes", "ober", "ufat"];
+
+  encriptar = (strigEntrada, arrayLetras, arrayLetrasCodificadas) => {
+    let strigCOdificado = "";
+    let letra;
+    let i;
+    let letraCodificada;
+
+    for (let index = 0; index < strigEntrada.length; index++) {
+      letra = strigEntrada.charAt(index);
+      if (letra == " ") {
+        strigCOdificado += " ";
+      } else {
+        i = arrayLetras.indexOf(letra);
+
+        if (i == -1) {
+          strigCOdificado += letra;
+        } else {
+          letraCodificada = arrayLetrasCodificadas[i];
+          strigCOdificado += letraCodificada;
+        }
+      }
+    }
+
+    return strigCOdificado;
+  };
+
+  getIndexLetra = (letra, arrayLetras) => {
+    for (let index = 0; index < arrayLetras.length; index++) {
+      if (letra == arrayLetras[index]) {
+        return index;
+      }
+    }
+    return -1;
+  };
+
+  desencriptar = (strigEntrada, arrayLetras, arrayLetrasCodificadas) => {
+    let stringdesCodificado = "";
+    let letraCodificada;
+    let i;
+    let salto;
+
+    for (let index = 0; index < strigEntrada.length; index++) {
+      letraCodificada = strigEntrada.charAt(index);
+      if (letraCodificada == " ") {
+        stringdesCodificado += " ";
+      } else {
+        i = arrayLetras.indexOf(letraCodificada);
+
+        if (i == -1) {
+          stringdesCodificado += letraCodificada;
+        } else {
+          salto = arrayLetrasCodificadas[i];
+          index += salto.length - 1;
+          stringdesCodificado += letraCodificada;
+        }
+      }
+    }
+
+    return stringdesCodificado;
+  };
+
+  botonEnviar.addEventListener("click", () => {
+    strigEntrada = textAreaEntrada.value;
+    textAreaEntrada.value = "";
+    console.log(strigEntrada);
+    let strigCodificado = encriptar(
+      strigEntrada,
+      arrayLetras,
+      arrayLetrasCodificadas
+    );
+    console.log(strigCodificado);
+
+    if(strigCodificado != ""){
+    textAreaSalida.innerText = strigCodificado;
+    document.getElementById("Copiar").style.display = "block";
+    areaSalida.style.backgroundImage = 'none';
+    textAreaEntrada.value = "";
+    }else{
+        let screenWidth = window.innerWidth;
+        if(screenWidth > 840){
+            document.getElementById("Copiar").style.display = "none";
+            areaSalida.style.backgroundImage = 'url(images/Persona.png)';
+            textAreaSalida.innerText = "";
+        }else if(screenWidth < 840 && screenWidth > 540){
+            document.getElementById("Copiar").style.display = "none";
+            areaSalida.style.backgroundImage = 'url(images/chiquito.png)';
+            textAreaSalida.innerText = "";
+        }else{
+            document.getElementById("Copiar").style.display = "none";
+            areaSalida.style.backgroundImage = 'url(images/chiquito2.png)';
+            textAreaSalida.innerText = "";
+        }
+        
+    }
+
+    
+  });
+
+  botonDesenciptar.addEventListener("click", () => {
+    strigEntrada = textAreaEntrada.value;
+    let stringDescodificado = desencriptar(
+      strigEntrada,
+      arrayLetras,
+      arrayLetrasCodificadas
+    );
+
+    if(stringDescodificado != ""){
+    textAreaSalida.innerText = stringDescodificado;
+    document.getElementById("Copiar").style.display = "block";
+    areaSalida.style.backgroundImage = 'none';
+    textAreaEntrada.value = "";
+    }else{
+        let screenWidth = window.innerWidth;
+        if(screenWidth > 840){
+            document.getElementById("Copiar").style.display = "none";
+            areaSalida.style.backgroundImage = 'url(images/Persona.png)';
+            textAreaSalida.innerText = "";
+        }else if(screenWidth < 840 && screenWidth > 540){
+            document.getElementById("Copiar").style.display = "none";
+            areaSalida.style.backgroundImage = 'url(images/chiquito.png)';
+            textAreaSalida.innerText = "";
+        }else{
+            document.getElementById("Copiar").style.display = "none";
+            areaSalida.style.backgroundImage = 'url(images/chiquito2.png)';
+            textAreaSalida.innerText = "";
+        }
+        
+    }
+    
+  });
+
+  botonCopiar.addEventListener("click", () => {
+    // Obtener el texto del div
+  const texto = textAreaSalida.innerText;
+  
+  // Crear un elemento de texto temporal para copiar el contenido
+  const temporal = document.createElement("textarea");
+  temporal.value = texto;
+  
+  // Añadir el elemento temporal al DOM
+  document.body.appendChild(temporal);
+  
+  // Seleccionar el contenido del elemento temporal
+  temporal.select();
+  
+  // Copiar el contenido seleccionado al portapapeles
+  document.execCommand("copy");
+  
+  // Remover el elemento temporal del DOM
+  document.body.removeChild(temporal);
+  });
+</script>

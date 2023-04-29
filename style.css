@@ -1,0 +1,267 @@
+body {
+  background-color: #f3f5fc;
+}
+
+header img {
+  height: 64px;
+  width: 64px;
+  left: 44px;
+  top: 0px;
+  border-radius: 0px;
+}
+
+.text-Areas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f5fc;
+}
+
+#textAreaEnter {
+  border: none;
+  width: 60%;
+  background-color: #f3f5fc;
+  margin: 20px 20px 0px 120px;
+  resize: none;
+
+  color: #0a3871;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+}
+
+#textAreaEnter::placeholder {
+  color: #0a3871;
+  position: absolute;
+  width: 300px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+}
+
+#textAreaOutput {
+  display: flex;
+  flex-direction: column;
+
+  margin-right: 70px;
+  background-color: white;
+  background-image: url(images/Persona.png);
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20%;
+  height: 700px;
+
+  padding: 20px 30px 0px 30px;
+
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  border-radius: 32px;
+}
+
+#Copiar {
+  width: 70%;
+  height: 67px;
+
+  margin-top: auto;
+  margin-bottom: 20px;
+  margin-left: 15%;
+
+  display: none; /*Ocultar el boton de copiar*/
+
+  background: #f3f5fc;
+  color: #0a3871;
+  border-radius: 24px;
+  font-size: 20px;
+
+  box-sizing: border-box;
+  border: 1px solid #0a3871;
+  border-radius: 24px;
+
+  transition: 1s all;
+}
+
+#textoOutput {
+  font-size: 32px;
+  color: #0a3871;
+  display: inline-block !important;
+  overflow-wrap: break-word;
+}
+
+#Copiar:hover {
+  background: #0a3871;
+  color: #f3f5fc;
+}
+
+#Copiar:active {
+  background: #f3f5fc;
+  color: #0a3871;
+  transform: scale(1.2) rotate(3deg);
+}
+
+.advertencia{
+width: 355px;
+height: 18px;
+
+display: inline-block;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 150%;
+
+margin: 20px 20px 20px 210px;
+
+color: #495057;
+
+}
+
+.botones {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-left: 120px;
+  margin-right: 30px;
+  gap: 5%;
+}
+
+#Enviar {
+  width: 40%;
+  height: 67px;
+  background: #0a3871;
+  color: #f3f5fc;
+  border-radius: 24px;
+  font-size: 20px;
+  transition: 1s all;
+}
+
+#Enviar:hover {
+  background: darkblue;
+  color: #f3f5fc;
+}
+
+#Enviar:active {
+  transform: scale(1.2) rotate(3deg);
+}
+
+#Desenciptar {
+  width: 40%;
+  height: 67px;
+
+  background: #f3f5fc;
+  color: #0a3871;
+  border-radius: 24px;
+  font-size: 20px;
+
+  box-sizing: border-box;
+  border: 1px solid #0a3871;
+  border-radius: 24px;
+
+  transition: 1s all;
+}
+
+#Desenciptar:hover {
+  background: #0a3871;
+  color: #f3f5fc;
+}
+
+#Desenciptar:active {
+  background: #f3f5fc;
+  color: #0a3871;
+  transform: scale(1.2) rotate(3deg);
+}
+
+.footer{
+    height: 200px;
+}
+
+@media screen and (max-width: 840px) {
+  .header {
+    margin-top: 20px;
+  }
+
+  #textAreaEnter {
+    width: 100%;
+    margin: 20px 0px 0px 20px;
+
+    font-size: 20px;
+  }
+
+  .advertencia{
+    margin: 20px 20px 20px 170px;
+  }
+
+  .botones {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  #Enviar {
+    background: #0a3871;
+    color: #f3f5fc;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #Desenciptar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #textAreaOutput {
+    position: absolute;
+    width: 70%;
+    height: auto;
+    min-height: 200px;
+
+    top: 670px;
+    left: 9%;
+
+    background-image: url(images/chiquito.png);
+  }
+
+  #textoOutput {
+    font-size: 20px;
+    color: #0a3871;
+    display: inline-block !important;
+    overflow-wrap: break-word;
+  }
+
+  #Copiar {
+    margin-top: 20px;
+  }
+}
+
+@media  screen and (max-width: 540px) {
+    #textAreaOutput {
+    position: absolute;
+    width: 70%;
+    height: auto;
+    min-height: 200px;
+
+    top: 670px;
+    left: 9%;
+
+    background-image: url(images/chiquito2.png);
+    background-size: 60%;
+  }
+
+  .advertencia{
+    margin: 20px 20px 20px 130px;
+  }
+
+
+    
+}
